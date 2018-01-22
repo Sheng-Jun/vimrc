@@ -45,9 +45,31 @@ After finishing the installation, type :q twice to quit two-panel vim.
 [Hot keys]
 ----------------
 
-**NerdTree** F3
+**scrooloose/nerdcommenter**
 
-**Tagbar** F4
+\ + cc Comment out the current line or text selected in visual mode.
 
-**Rainbow parentheses** F5
+\ + cu Uncomments the selected line(s).
+
+\ + cy Copy the selected line(s) first then execute \ + cc 
+
+**scrooloose/nerdtree** F3
+
+**majutsushi/tagbar** F4
+
+**luochen1990/rainbow** F5
+
+[Powerline]
+--------------
+
+At the end of vim_clean, Some lines which have been commented out is related to Powerline.
+
+You need to install Powerline before you uncomment these lines.
+
+Please refer to
+
+https://powerline.readthedocs.io/en/latest/installation/linux.html
+
+https://powerline.readthedocs.io/en/latest/installation/osx.html
+
 
