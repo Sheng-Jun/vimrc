@@ -1,0 +1,132 @@
+" Fisa-vim-config
+" http://fisadev.github.io/fisa-vim-config/
+" Modified version: 8.2 by Sheng-Jun Lin
+
+" ============================================================================
+" Vim-plug initialization
+" Avoid modify this section, unless you are very sure of what you are doing
+
+let vim_plug_just_installed = 0
+let vim_plug_path = expand('~/.vim/autoload/plug.vim')
+if !filereadable(vim_plug_path)
+    echo "Installing Vim-plug..."
+    echo ""
+    silent !mkdir -p ~/.vim/autoload
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    let vim_plug_just_installed = 1
+endif
+
+" manually load vim-plug the first time
+if vim_plug_just_installed
+    :execute 'source '.fnameescape(vim_plug_path)
+endif
+
+" Obscure hacks done, you can now modify the rest of the .vimrc as you wish :)
+
+" ============================================================================
+" Active plugins
+" You can disable or add new ones here:
+
+" this needs to be here, so vim-plug knows we are declaring the plugins we
+" want to use
+call plug#begin('~/.vim/plugged')
+
+" Plugins from github repos:
+"*************************************************
+
+" Code commenter
+Plug 'scrooloose/nerdcommenter'
+" Class/module browser
+Plug 'majutsushi/tagbar'
+" Better file browser
+Plug 'scrooloose/nerdtree'
+" Paint css colors with the real color
+Plug 'lilydjwg/colorizer'
+" Rainbow parentheses
+Plug 'luochen1990/rainbow'
+
+" Plugins from vim-scripts repos:
+"*************************************************
+
+" Search results counter
+Plug 'IndexedSearch'
+
+"*************************************************
+
+" Tell vim-plug we finished declaring plugins, so it can load them
+call plug#end()
+
+" ============================================================================
+" Install plugins the first time vim runs
+
+if vim_plug_just_installed
+    echo "Installing Bundles, please ignore key map error messages"
+    :PlugInstall
+endif
+
+" ============================================================================
+" Plugins settings and mappings
+" Edit them as you wish.
+
+" Tagbar ----------------------------- 
+
+" toggle tagbar display
+map <F4> :TagbarToggle<CR>
+" autofocus on tagbar open
+let g:tagbar_autofocus = 1
+
+" NERDTree ----------------------------- 
+
+" toggle nerdtree display
+map <F3> :NERDTreeToggle<CR>
+" open nerdtree with the current file selected
+nmap ,t :NERDTreeFind<CR>
+" don;t show these file types
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
+
+"Rainbow parentheses ------------------- 
+
+let g:rainbow_active = 0
+map <F5> :RainbowToggle<CR>
+
+" End of fisa-vim-config 
+" ============================================================================
+
+" Vim settings and mappings
+" You can edit them as you wish
+
+" syntax highlight on
+syntax on
+
+" show line numbers
+set nu
+
+" always show status bar
+set ls=2
+
+" when scrolling, keep cursor 3 lines away from screen border
+set scrolloff=3
+
+" highlighted search results
+set hlsearch
+
+" tabs and spaces handling
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+
+"Color
+colorscheme ron
+
+" More natural split opening
+set splitbelow
+set splitright
+
+" Powerline
+"set laststatus=2
+"set t_Co=256
+"python from powerline.vim import setup as powerline_setup
+"python powerline_setup()
+"python del powerline_setup
+
