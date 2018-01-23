@@ -496,3 +496,4 @@ let g:rainbow_conf = {
 highlight ExtraWhitespace ctermbg=darkred guibg=darkcyan
 autocmd BufEnter * if &ft != 'help' | match ExtraWhitespace /\s\+$/ | endif
 autocmd BufEnter * if &ft == 'help' | match none /\s\+$/ | endif
+

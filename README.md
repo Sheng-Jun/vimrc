@@ -1,4 +1,4 @@
-My vim settings
+My vim settings (vim-plug and some vim plugins)
 ===============
 
 Modified from https://github.com/fisadev/fisa-vim-config version 8.2
